@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP assignment 1</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="text-center"><h1 style="color:rgb(21, 150, 230);-webkit-text-stroke: 1px white;">MOBILE SHOPPING</h1></div>
+        <div class="text-center mt-4">
+            <div class="d-flex justify-content-center mt-5">
+                <form id="registrationForm" class="form-control form-control-lg mt-2" style="max-width:400px;background:none;">
+                    <div class="form-group mt-2">
+                        <label for="firstName" style="color:white;">First Name</label><br>
+                        <input type="text" id="firstName" name="firstname" class="form-control" placeholder="Enter your first name">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="lastName" style="color:white;">Last Name</label><br>
+                        <input type="text" id="lastName" name="lastname" class="form-control" placeholder="Enter your last name">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="email" style="color:white;">Email</label><br>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="pwd" style="color:white;">Password</label><br>
+                        <input type="password" id="pwd" name="password" class="form-control" placeholder="Enter your password">
+                    </div>
+                    <div class="form-group mt-3">
+                      <label for="pwd1" style="color:white;">Renter Password</label><br>
+                      <input type="password1" id="pwd1" name="password1" class="form-control" placeholder="Enter your password">
+                  </div>
+                    <button type="button" class="btn btn-success btn-block mt-3" onclick="validateForm()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      function validateForm() {
+          var firstName = document.getElementById("firstName").value;
+          var lastName = document.getElementById("lastName").value;
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("pwd").value;
+          var password1 = document.getElementById("pwd1").value;
+  
+          if (firstName === "" || lastName === "" || email === "" || password === "") {
+              alert("All fields are required");
+          } else if (!isValidEmail(email)) {
+              alert("Email format is not valid");
+          } 
+          else if (password !== password1 || password.length !== 8 || password1.length !== 8) {
+            alert("Check password: Passwords must match and be 8 characters long.");
+
+            }
+          else {
+              window.location.href = "content.html"; // Redirect if validation passes
+          }
+      }
+  
+      function isValidEmail(email) {
+          var emailRegex = /^[A-Za-z0-9@.-]+$/;
+          return emailRegex.test(email);
+      }
+  </script>
+  
+</body>
+</html>
